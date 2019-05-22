@@ -1,52 +1,62 @@
 package com.quantumstudio.galleryrest.entities;
 
+import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
+import java.util.Set;
 
+@Entity
 public class Artist {
+	@Id
+	@GeneratedValue
 
-    private long id;
-    private String name;
-    private ArrayList<Painting> paintingList;
-    private ArrayList<Client> clientList;
-    private ArrayList<Technique> techniqueList;
+	private long id;
+	@Size(min = 3)
+	private String name;
+	@OneToMany
+	private Set<Painting> paintingSet;
+	@ManyToMany(mappedBy = "clientSet")
+	private Set<Client> clientSet;
+	@ManyToMany
+	private Set<Technique> techniqueSet;
 
-    public long getId() {
-        return id;
-    }
+	public long getId() {
+		return id;
+	}
 
-    public void setId(long id) {
-        this.id = id;
-    }
+	public void setId(long id) {
+		this.id = id;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public ArrayList<Painting> getPaintingList() {
-        return paintingList;
-    }
+	public Set<Painting> getPaintingSet() {
+		return paintingSet;
+	}
 
-    public void setPaintingList(ArrayList<Painting> paintingList) {
-        this.paintingList = paintingList;
-    }
+	public void setPaintingSet(Set<Painting> paintingSet) {
+		this.paintingSet = paintingSet;
+	}
 
-    public ArrayList<Client> getClientList() {
-        return clientList;
-    }
+	public Set<Client> getClientSet() {
+		return clientSet;
+	}
 
-    public void setClientList(ArrayList<Client> clientList) {
-        this.clientList = clientList;
-    }
+	public void setClientSet(Set<Client> clientSet) {
+		this.clientSet = clientSet;
+	}
 
-    public ArrayList<Technique> getTechniqueList() {
-        return techniqueList;
-    }
+	public Set<Technique> getTechniqueSet() {
+		return techniqueSet;
+	}
 
-    public void setTechniqueList(ArrayList<Technique> techniqueList) {
-        this.techniqueList = techniqueList;
-    }
+	public void setTechniqueSet(Set<Technique> techniqueSet) {
+		this.techniqueSet = techniqueSet;
+	}
 }

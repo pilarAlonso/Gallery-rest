@@ -1,14 +1,23 @@
 package com.quantumstudio.galleryrest.entities;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
+import java.util.Set;
 
+@Entity
 public class Client {
-
+@Id
+@GeneratedValue
     private long id;
+    @NotNull
     private String name;
+    @NotNull
     private String password;
+    @OneToMany
     private ArrayList<Purchase> purchaseList;
-    private ArrayList<Artist> artistList;
+	@ManyToMany
+	private Set<Artist> artistSet;
 
     public long getId() {
         return id;
@@ -26,12 +35,12 @@ public class Client {
         this.name = name;
     }
 
-    public ArrayList<Artist> getArtistList() {
-        return artistList;
+    public Set<Artist> getArtistSet() {
+        return artistSet;
     }
 
-    public void setArtistList(ArrayList<Artist> artistList) {
-        this.artistList = artistList;
+    public void setArtistSet(Set<Artist> artistSet) {
+        this.artistSet = artistSet;
     }
 
     public ArrayList<Purchase> getPurchaseList() {
