@@ -14,7 +14,8 @@ public class Technique {
 
     @Id
 
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+
 
     private long id;
 

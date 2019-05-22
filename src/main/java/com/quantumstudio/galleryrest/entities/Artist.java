@@ -14,7 +14,8 @@ public class Artist {
 
 	@Id
 
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+
 
 	private long id;
 
