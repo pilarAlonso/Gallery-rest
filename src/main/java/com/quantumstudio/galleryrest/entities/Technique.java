@@ -7,49 +7,105 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
+
 public class Technique {
-@Id
-@GeneratedValue
+
+
+
+    @Id
+
+    @GeneratedValue
+
     private long id;
-@Column(unique=true)
-@NotNull
+
+
+
+    @NotNull
+
+    @Column(unique = false)
 
     private String name;
-@ManyToMany(mappedBy = "techniqueSet")
+
+
+
+    @ManyToMany(mappedBy = "techniqueSet")
+
+
 
     private Set<Artist> artistSet;
-@OneToMany
+
+
+
+    @OneToMany
+
     private List<Painting> paintingList;
 
+
+
     public String getName() {
+
         return name;
+
     }
+
+
 
     public void setName(String name) {
+
         this.name = name;
+
     }
+
+
 
     public Set<Artist> getArtistSet() {
+
         return artistSet;
+
     }
 
-    public void setArtistSet(Set<Artist> artistSet) {
+
+
+    public Technique setArtistSet(Set<Artist> artistSet) {
+
         this.artistSet = artistSet;
+
+        return this;
+
     }
+
+
 
     public List<Painting> getPaintingList() {
+
         return paintingList;
+
     }
 
-    public void setPaintingList(ArrayList<Painting> paintingList) {
+
+
+    public Technique setPaintingList(List<Painting> paintingList) {
+
         this.paintingList = paintingList;
+
+        return this;
+
     }
+
+
 
     public long getId() {
+
         return id;
+
     }
 
+
+
     public void setId(long id) {
+
         this.id = id;
+
     }
+
 }

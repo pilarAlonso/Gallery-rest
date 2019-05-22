@@ -8,60 +8,119 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 @Entity
-public class Purchase {
-@Id
-@GeneratedValue
-	private String orderNumber;
-@NotNull
-	private LocalDateTime date;
-@NotNull
 
-@Min(1)
+public class Purchase {
+
+
+
+	@Id
+
+	private String orderNumber;
+
+
+
+	@NotNull
+
+	private LocalDateTime date;
+
+
+
+	@NotNull
+
+	@Min(1)
+
 	private int quantity;
-@NotNull
-@ManyToOne
+
+
+
+	@ManyToOne
+
 	private Painting painting;
-@NotNull
-@ManyToOne
+
+
+
+	@ManyToOne
+
 	private Client client;
 
+
+
 	public String getOrderNumber() {
+
 		return orderNumber;
+
 	}
+
+
 
 	public void setOrderNumber(String orderNumber) {
+
 		this.orderNumber = orderNumber;
+
 	}
+
+
 
 	public LocalDateTime getDate() {
+
 		return date;
+
 	}
+
+
 
 	public void setDate(LocalDateTime date) {
+
 		this.date = date;
+
 	}
+
+
 
 	public int getQuantity() {
+
 		return quantity;
+
 	}
+
+
 
 	public void setQuantity(int quantity) {
+
 		this.quantity = quantity;
+
 	}
+
+
 
 	public Painting getPainting() {
+
 		return painting;
+
 	}
+
+
 
 	public void setPainting(Painting painting) {
+
 		this.painting = painting;
+
 	}
+
+
 
 	public Client getClient() {
+
 		return client;
+
 	}
 
+
+
 	public void setClient(Client client) {
+
 		this.client = client;
+
 	}
+
 }
