@@ -1,19 +1,21 @@
 package com.quantumstudio.galleryrest.Services.impl;
 
+import com.quantumstudio.galleryrest.Repositories.ClientRepository;
 import com.quantumstudio.galleryrest.Services.ClientService;
 import com.quantumstudio.galleryrest.entities.Client;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class ClientServiceImpl implements ClientService {
-	private final ClientService clientService;
+	private final ClientRepository clientRepository;
 
-	public ClientServiceImpl(ClientService clientService) {
-		this.clientService = clientService;
+	public ClientServiceImpl(ClientRepository clientRepository) {
+		this.clientRepository = clientRepository;
 	}
 
 	@Override
 	public List<Client> findAll() {
-		return clientService.findAll() ;
+		return clientRepository.findAll() ;
 	}
 }

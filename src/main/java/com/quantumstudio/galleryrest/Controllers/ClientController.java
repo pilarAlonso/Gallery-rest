@@ -3,10 +3,11 @@ package com.quantumstudio.galleryrest.Controllers;
 import com.quantumstudio.galleryrest.Services.ClientService;
 import com.quantumstudio.galleryrest.entities.Client;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
-
+@Controller
 public class ClientController {
 	private final ClientService clientService;
 
